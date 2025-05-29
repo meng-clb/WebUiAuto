@@ -23,4 +23,9 @@ allure-results/
 # 忽略测试缓存
 .cache/
 .pytest_cache/
+
+# 自动化过程中步骤的截图
 screenshots/
+
+# 写代码过程中的测试文件
+main.py
