@@ -1,8 +1,4 @@
-from datetime import datetime
-import logging
-import os
-import allure
-from DrissionPage import ChromiumPage, ChromiumOptions
+from DrissionPage import ChromiumPage
 from config.settings import *
 
 

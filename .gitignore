@@ -23,4 +23,4 @@ allure-results/
 # 忽略测试缓存
 .cache/
 .pytest_cache/
-.screenshots
+screenshots/

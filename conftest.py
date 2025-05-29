@@ -13,7 +13,7 @@ def setup_logging():
 	logging.basicConfig(level=logging.INFO, format='[%(asctime)s] %(message)s')
 
 
-@pytest.fixture(scope="function")
+@pytest.fixture(scope="session")
 def dp():
 	if not os.path.exists(SCREENSHOT_DIR):
 		os.makedirs(SCREENSHOT_DIR)

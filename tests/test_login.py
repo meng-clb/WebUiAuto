@@ -7,9 +7,7 @@ from pages.login_page import LoginPage
 @allure.feature("登录功能")
 @allure.story("正常登录流程")
 @allure.title("登录成功")
-@pytest.mark.parametrize("username,password,office", [
-	("chenlibin", "Start2025", "张江")
-])
+@pytest.mark.parametrize("username,password,office", [("chenlibin", "Start2025", "张江")])
 def test_login_access(dp, auto_screenshot, username, password, office):
 	login = LoginPage(dp, screenshot_step=auto_screenshot)
 	login.click_switch_page()
