@@ -29,3 +29,7 @@ screenshots/
 
 # 写代码过程中的测试文件
 main.py
+code.py
+
+# 存储账号密码使用，不公开
+.env

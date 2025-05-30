@@ -7,6 +7,8 @@ from DrissionPage import ChromiumPage, ChromiumOptions
 from config.settings import *
 from datetime import datetime
 
+from pages.login import LoginPage
+
 
 @pytest.fixture(scope="function", autouse=True)
 def setup_logging():
@@ -43,3 +45,22 @@ def auto_screenshot(request, dp):
 		allure.attach.file(path, name=description, attachment_type=allure.attachment_type.PNG)
 
 	return take
+
+
+@pytest.fixture
+def login_user(dp, auto_screenshot):
+	"""
+	将登陆流程封装为夹具，所有的测试都会调用；
+	"""
+
+	def do_login(username=os.getenv('USERNAME'), password=os.getenv('PASSWORD'),
+	             office=os.getenv('OFFICE')):
+		login = LoginPage(dp, screenshot_step=auto_screenshot)
+		login.click_switch_page()
+		login.input_username(username)
+		login.input_password(password)
+		login.click_login()
+		login.select_office(office)
+		return login
+
+	return do_login
