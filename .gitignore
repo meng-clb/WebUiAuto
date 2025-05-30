@@ -32,4 +32,4 @@ main.py
 code.py
 
 # 存储账号密码使用，不公开
-.env
+local_config.py

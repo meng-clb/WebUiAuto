@@ -8,6 +8,7 @@ from config.settings import *
 from datetime import datetime
 
 from pages.login import LoginPage
+from config.local_config import USERNAME, PASSWORD, OFFICE
 
 
 @pytest.fixture(scope="function", autouse=True)
@@ -53,8 +54,7 @@ def login_user(dp, auto_screenshot):
 	将登陆流程封装为夹具，所有的测试都会调用；
 	"""
 
-	def do_login(username=os.getenv('USERNAME'), password=os.getenv('PASSWORD'),
-	             office=os.getenv('OFFICE')):
+	def do_login(username=USERNAME, password=PASSWORD, office=OFFICE):
 		login = LoginPage(dp, screenshot_step=auto_screenshot)
 		login.click_switch_page()
 		login.input_username(username)

@@ -1,12 +1,12 @@
 from DrissionPage import ChromiumPage
-import os
+from config.local_config import BASE_URL
 
 
 class LoginPage:
 	def __init__(self, page: ChromiumPage, screenshot_step=None):
 		self.page = page
 		self.step = screenshot_step or (lambda desc: None)
-		self.page.get(f'{os.getenv("BASE_URL")}/login')
+		self.page.get(f'{BASE_URL}/login')
 
 	def click_switch_page(self):
 		self.page.ele('xpath=//div[@class="toUser"]').click()
